@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Psyhic-Game</title>
+<!-- Latest compiled and minified CSS -->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="assets/css/style.css" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+<link type="text/javascript" src="assets/javascript/game.js">
+
+ </div> <!-- end of header tag-->
+	</head>
+	
+<body id="body" class="clearfix"> 
+
+<script src="assets/javascript/game.js"> 
+
+var alphabet=['a','n'];
+
+var numGuess=  10;  //number of guesses
+var userGuessed=[]; //letters user guessed
+var loseCounter=[0]; 
+var winCounter=[0]; 
+// var losses=loseCounter;
+// var wins=winCounter;
+var amountOfGuess=numGuess;
+
+function randomizer (alphabet) {
+	return alphabet[Math.floor(Math.random()* alphabet.length)];
+}
+
+document.onkeyup = function(event) {
+	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+	var computerGuess=randomizer(alphabet);
+		
+	if (userGuess== computerGuess) {
+		console.log("yesCorrect", userGuessed);
+		document.getElementById("winCounter").innerHTML= (winCounter.length);
+		userGuessed.push(userGuess);
+		document.getElementById("userGuessed").innerHTML=(userGuessed);
+		(winCounter+=1);
+		// document.getElementById("userGuessed").innerHTML=(userGuessed.length);
+		
+	} else {
+		console.log("not", numGuess, userGuessed);
+		document.getElementById("loseCounter").innerHTML= (loseCounter.length);
+		userGuessed.push(userGuess);
+		document.getElementById("userGuessed").innerHTML=(userGuessed);
+		numGuess--;
+		// (loseCounter+=1);
+		document.getElementById("numGuess").innerHTML=(numGuess);
+		// document.getElementById("userGuessed").innerHTML=(userGuessed.indexOf);
+		
+	}
+	if (numGuess===0 ) {
+		// reset.resetGame()
+		alert("Opps You lose!");
+		reset.resetGame();
+		loseCounter+=1;
+		userGuessed=[];
+	
+	};
+}
+var reset = {
+	resetGame: function() {
+		if(numGuess==0) {
+			document.onekeyup=false;
+			numGuess=10;
+			userGuessed=[];
+		}
+	}
+}
+</script>
+
+
+
+<div id="wrap">
+		<div class="container"> 
+			<div class="row">
+				<div class="col-lg-7"> 
+					<h1 class="title-psychicGame">The Psychic Game</h1>
+					<h3 class="title-text" style="color: brown"> Guess what letter I'm thinking of? </h3>
+				<div class="row">
+					<div class="col-lg-7">
+						<h2 class="wins premade">Wins:</h2>
+						<h3 id="winCounter" class="scorecolor"></h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-7">
+						<h2 class="losses premade">Losses:</h2>
+						<h3 id="loseCounter" class="scorecolor"></h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-7">
+						<h2 class="guesses premade">Guesses Left:</h2>
+						<h3 id="numGuess" class="scorecolor"></h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-7">
+						<h2 class="lettersNow premade">Your guessed so far:</h2>
+						<h3 id="userGuessed" class="scorecolor"></h3>
+					</div>
+				</div>
+			</div>
+
+					
+         		     </div>
+         		   </div>
+      
+			</div>
+		</div>
+
+	
+ 	
+
+
+
+
+		  
+</div>
+
+</body>
+	 
+			

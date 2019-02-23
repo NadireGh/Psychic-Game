@@ -1,0 +1,40 @@
+
+/*header*/
+	.header-container {
+		width:100%;
+		height:900px;
+		border-left:none;
+		border-right: none;
+		position: relative;
+		padding:20px;
+		
+}
+
+	
+
+
+
+
+/*body color/fonts*/
+
+.title-psychicGame {
+	font-weight: 100px;
+	text-align: center;
+	font-family:'Times New Roman', Times, serif;
+    color:green;
+}
+
+
+
+
+
+.scorecolor {
+	color: #b1209d;
+}
+.premade {
+	color: #1463ad;
+	font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
